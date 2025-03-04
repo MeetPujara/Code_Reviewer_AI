@@ -43,8 +43,7 @@ function App() {
 		setReview("");
 
 		try {
-			const response = await fetch(
-				"http://localhost:4000/ai/get-review",
+			const response = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/ai/get-review`,
 				{
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
