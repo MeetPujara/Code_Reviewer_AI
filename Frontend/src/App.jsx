@@ -43,18 +43,37 @@ function App() {
 		setReview("");
 
 		try {
-			const response = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/ai/get-review`,
+			const response = await fetch(
+				`${
+					import.meta.env.VITE_REACT_APP_BACKEND_BASEURL
+				}/ai/get-review`,
 				{
 					method: "POST",
-					headers: { "Content-Type": "application/json" },
+					credentials: "include", // This helps with CORS
+					headers: {
+						"Content-Type": "application/json",
+						// Optional: Add origin header if needed
+						Origin: window.location.origin,
+					},
 					body: JSON.stringify({ code, language }),
 				}
 			);
+
+			if (!response.ok) {
+				// Handle non-200 responses
+				const errorText = await response.text();
+				throw new Error(
+					`HTTP error! status: ${response.status}, message: ${errorText}`
+				);
+			}
+
 			const data = await response.text();
 			setReview(data);
 		} catch (error) {
 			console.error("Error generating review:", error);
-			setReview("Error generating review. Please try again.");
+			setReview(
+				`Error generating review: ${error.message}. Please try again.`
+			);
 		} finally {
 			setLoading(false);
 		}
