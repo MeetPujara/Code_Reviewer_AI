@@ -16,6 +16,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
 	res.json("Working")
 })
+
 app.use("/ai", router);
 
 app.use((err, req, res, next) => {
