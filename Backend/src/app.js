@@ -6,14 +6,10 @@ export const app = express();
 
 app.use(
 	cors({
-		origin: (origin, callback) => {
-			const allowedOrigins = process.env.ALLOWED_ORIGINS.split(",");
-			if (!origin || allowedOrigins.includes(origin)) {
-				callback(null, true);
-			} else {
-				callback(new Error("Not allowed by CORS"));
-			}
-		},
+		origin: [
+			"https://code-reviewer-ai-rq2w.vercel.app",
+			"https://code-reviewer-ai-rq2w-git-main-meetpujaras-projects.vercel.app",
+		],
 		methods: "GET,POST,OPTIONS",
 		allowedHeaders: "Content-Type,Authorization",
 	})
