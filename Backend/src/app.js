@@ -12,7 +12,8 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use("/", (req, res) => {
+
+app.get("/", (req, res) => {
 	res.json("Working")
 })
 app.use("/ai", router);
