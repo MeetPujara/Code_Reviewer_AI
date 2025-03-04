@@ -4,7 +4,16 @@ import cors from "cors";
 
 export const app = express();
 
-app.use(cors())
+app.use(
+	cors({
+		origin: [
+			"https://code-reviewer-ai-rq2w.vercel.app",
+			"https://code-reviewer-ai-rq2w-git-main-meetpujaras-projects.vercel.app",
+		],
+		methods: "GET,POST,OPTIONS",
+		allowedHeaders: "Content-Type,Authorization",
+	})
+);
 
 app.use(express.json());
 app.use("/ai", router);
