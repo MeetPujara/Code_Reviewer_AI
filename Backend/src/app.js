@@ -5,7 +5,7 @@ import cors from "cors";
 export const app = express();
 
 const corsOptions = {
-	origin: ["https://code-reviewer-ai-frontend.vercel.app"],
+	origin: ["*"],
 	methods: ["POST", "GET"],
 	credentials: true,
 };
