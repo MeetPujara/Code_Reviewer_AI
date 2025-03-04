@@ -5,11 +5,31 @@
 		{
 			"src": "server.js",
 			"use": "@vercel/node"
-		},
-		{
-			"src": "src/**/*",
-			"use": "@vercel/static"
 		}
 	],
-	"routes": [{ "src": "/(.*)", "dest": "/" }]
+	"routes": [
+		{
+			"src": "/ai/(.*)",
+			"dest": "server.js"
+		}
+	],
+	"headers": [
+		{
+			"source": "/ai/(.*)",
+			"headers": [
+				{
+					"key": "Access-Control-Allow-Origin",
+					"value": "*"
+				},
+				{
+					"key": "Access-Control-Allow-Methods",
+					"value": "GET,POST,OPTIONS"
+				},
+				{
+					"key": "Access-Control-Allow-Headers",
+					"value": "Content-Type,Authorization"
+				}
+			]
+		}
+	]
 }
