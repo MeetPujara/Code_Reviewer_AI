@@ -7,9 +7,10 @@ export const app = express();
 app.use(
 	cors({
 		origin:
+			process.env.ALLOWED_ORIGIN ||
 			"https://code-reviewer-ai-rq2w.vercel.app",
-		    methods: "GET,POST,OPTIONS",
-		    allowedHeaders: "Content-Type,Authorization",
+		methods: "GET,POST,OPTIONS",
+		allowedHeaders: "Content-Type,Authorization",
 	})
 );
 
@@ -21,7 +22,7 @@ app.use((err, req, res, next) => {
 	res.status(500).send("Something broke!");
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4001;
 app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT}`);
 });
