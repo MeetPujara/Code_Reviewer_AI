@@ -5,7 +5,7 @@ import cors from "cors";
 export const app = express();
 
 const corsOptions = {
-	origin: "http://localhost:5173",
+	origin: "http://localhost:5173/",
 	methods: ["POST","GET"],
 	credentials: true,
 };
@@ -13,7 +13,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/", (req, res) => {
-	res.send("Working")
+	res.json("Working")
 })
 app.use("/ai", router);
 
