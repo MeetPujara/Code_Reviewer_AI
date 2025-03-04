@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
     
 })
 
-const PORT = 4000; // Change the port number here
+const PORT = 3000; // Change the port number here
 
 app.listen(PORT, () => {
 	console.log(`Server is running on http://localhost:${PORT}`);

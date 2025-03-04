@@ -49,10 +49,9 @@ function App() {
 				}/ai/get-review`,
 				{
 					method: "POST",
-					credentials: "include", // This helps with CORS
+					credentials: "include",
 					headers: {
 						"Content-Type": "application/json",
-						// Optional: Add origin header if needed
 						Origin: window.location.origin,
 					},
 					body: JSON.stringify({ code, language }),
@@ -60,7 +59,6 @@ function App() {
 			);
 
 			if (!response.ok) {
-				// Handle non-200 responses
 				const errorText = await response.text();
 				throw new Error(
 					`HTTP error! status: ${response.status}, message: ${errorText}`
