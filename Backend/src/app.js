@@ -4,19 +4,24 @@ import cors from "cors";
 
 export const app = express();
 
+const allowedOrigins = [
+	"https://code-reviewer-ai-frontend.vercel.app/",
+	"https://code-reviewer-ai-backend-pi.vercel.app",
+];
 
 app.use(
 	cors({
-		origin: "https://code-reviewer-ai-frontend.vercel.app", // Replace with your frontend domain
+		origin: allowedOrigins,
 		methods: ["GET", "POST"],
 		credentials: true,
 	})
 );
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
-	res.json("Working")
-})
+	res.json("Backend Working!");
+});
 
 app.use("/ai", router);
 
