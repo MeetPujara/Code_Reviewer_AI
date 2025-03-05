@@ -52,7 +52,6 @@ function App() {
 					credentials: "include",
 					headers: {
 						"Content-Type": "application/json",
-						Origin: window.location.origin,
 					},
 					body: JSON.stringify({ code, language }),
 				}
