@@ -7,7 +7,7 @@ export const app = express();
 
 app.use(
 	cors({
-		origin: "https://code-reviewer-ai-frontend.vercel.app/", // Replace with your frontend domain
+		origin: "https://code-reviewer-ai-frontend.vercel.app", // Replace with your frontend domain
 		methods: ["GET", "POST"],
 		credentials: true,
 	})
