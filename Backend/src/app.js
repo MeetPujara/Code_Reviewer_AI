@@ -6,7 +6,6 @@ export const app = express();
 
 const allowedOrigins = [
 	"https://code-reviewer-ai-frontend.vercel.app",
-	"https://code-reviewer-ai-backend-pi.vercel.app",
 ];
 
 app.use(
