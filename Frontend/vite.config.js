@@ -5,7 +5,7 @@ export default defineConfig({
 	plugins: [react()],
 	server: {
 		proxy: {
-			"/api": {
+			"/ai": {
 				target: "https://code-reviewer-ai-backend-pi.vercel.app",
 				changeOrigin: true,
 				secure: true,
