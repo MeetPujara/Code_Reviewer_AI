@@ -4,13 +4,14 @@ import cors from "cors";
 
 export const app = express();
 
-const corsOptions = {
-	origin: ["*"],
-	methods: ["POST", "GET"],
-	credentials: true,
-};
 
-app.use(cors(corsOptions));
+app.use(
+	cors({
+		origin: "https://code-reviewer-ai-frontend.vercel.app/", // Replace with your frontend domain
+		methods: ["GET", "POST"],
+		credentials: true,
+	})
+);
 app.use(express.json());
 
 app.get("/", (req, res) => {
