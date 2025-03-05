@@ -1,15 +1,10 @@
 import { app } from "./src/app.js";
 import { configDotenv } from "dotenv";
 
-configDotenv()
+configDotenv();
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-    
-})
-
-const PORT = 3000; // Change the port number here
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-	console.log(`Server is running on http://localhost:${PORT}`);
+	console.log(`Server is running on port ${PORT}`);
 });
