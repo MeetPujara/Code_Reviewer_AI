@@ -6,7 +6,7 @@ export default {
 	server: {
 		proxy: {
 			"/api": {
-				target: "http://your-backend-domain.com", // Backend URL
+				target: "https://code-reviewer-ai-backend-pi.vercel.app", // Backend URL
 				changeOrigin: true,
 				secure: false,
 			},
