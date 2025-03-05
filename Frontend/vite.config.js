@@ -6,7 +6,7 @@ export default defineConfig({
 	server: {
 		proxy: {
 			"/ai": {
-				target: "https://code-reviewer-ai-backend-pi.vercel.app",
+				target: "https://code-reviewer-ai-backend-92fdt2vic-meetpujaras-projects.vercel.app",
 				changeOrigin: true,
 				secure: true,
 			},
