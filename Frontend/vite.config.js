@@ -1,15 +1,15 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-export default {
+export default defineConfig({
+	plugins: [react()],
 	server: {
 		proxy: {
-			"/ai": {
-				target: "https://code-reviewer-ai-backend-pi.vercel.app", 
+			"/api": {
+				target: "https://code-reviewer-ai-backend-pi.vercel.app",
 				changeOrigin: true,
-				secure: false,
+				secure: true,
 			},
 		},
 	},
-};
-
+});
